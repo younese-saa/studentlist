@@ -12,4 +12,7 @@ node {
     stage('Run Container'){
         sh 'docker run -p 5000:5000 -d --name list-students 227945/my:latest'
     }
+    stage('test'){
+        sh 'curl -u toto:python -X GET http://63c59bd5.ngrok.io:5000/pozos/api/v1.0/get_student_ages'
+    }
 }
