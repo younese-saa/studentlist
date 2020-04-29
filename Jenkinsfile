@@ -13,6 +13,9 @@ node {
     stage('Ansible Remote Access: AppServer'){
         sh 'ssh centos@192.168.1.131'
     }*/
+    stage('Aqua MicroScanner'){
+        aquaMicroscanner imageName:'227945/my:latest', notCompliesCmd:'exit 1', onDisallowed:'fail'
+    }
     stage('Stop Old container'){
         sh 'docker stop list-students'
     }
