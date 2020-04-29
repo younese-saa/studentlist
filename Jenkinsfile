@@ -9,9 +9,11 @@ node {
         /* Push the container to the costum Registry */
         customImage.push()  
     }
-    def imageLine = '227945/my:latest'`
-    writeFile file: 'anchore_images', text: imageLine`
-    anchore name: 'anchore_images'`
+    stage('Anchore Scan'){
+        def imageLine = '227945/my:latest'`
+        writeFile file: 'anchore_images', text: imageLine`
+        anchore name: 'anchore_images'`
+    }
     /*
     stage('Ansible Remote Access: AppServer'){
         sh 'ssh centos@192.168.1.131'
