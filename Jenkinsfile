@@ -23,6 +23,6 @@ node {
         sh 'docker run -p 5000:5000 -d --name list-students 227945/my:latest'
     }
     stage('test'){
-        sh 'http://localhost:5000/pozos/api/v1.0/get_student_ages'
+        sh 'curl -u toto:python -X GET http://192.168.1.131:5000/pozos/api/v1.0/get_student_ages'
     }
 }
