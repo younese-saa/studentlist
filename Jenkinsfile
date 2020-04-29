@@ -9,9 +9,10 @@ node {
         /* Push the container to the costum Registry */
         customImage.push()  
     }
+    /*
     stage('Ansible Remote Access: AppServer'){
         sh 'ssh centos@192.168.1.131'
-    }
+    }*/
     stage('Stop Old container'){
         sh 'docker stop list-students'
     }
