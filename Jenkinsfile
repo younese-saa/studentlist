@@ -13,9 +13,6 @@ node {
     stage('Ansible Remote Access: AppServer'){
         sh 'ssh centos@192.168.1.131'
     }*/
-    stage('Aqua MicroScanner'){
-        aquaMicroscanner imageName:'227945/my:latest', notCompliesCmd:'exit 1', onDisallowed:'fail'
-    }
     stage('Stop Old container'){
         sh 'docker stop list-students'
     }
@@ -24,6 +21,9 @@ node {
     }
     stage('Run Container'){
         sh 'docker run -p 5000:5000 -d --name list-students 227945/my:latest'
+    }
+     stage('Aqua MicroScanner'){
+        aquaMicroscanner imageName:'227945/my:latest', notCompliesCmd:'exit 1', onDisallowed:'ignore'
     }
     stage('test'){
         sh 'curl -u toto:python -X GET http://localhost:5000/pozos/api/v1.0/get_student_ages'
