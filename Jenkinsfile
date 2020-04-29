@@ -12,13 +12,13 @@ node {
     /*
     stage('Ansible Remote Access: AppServer'){
         sh 'ssh centos@192.168.1.131'
-    }*/
+    }*//*
     stage('Stop Old container'){
         sh 'docker stop list-students'
     }
     stage('Remove Old container'){
         sh 'docker rm list-students'
-    }
+    }*/
     stage('Run Container'){
         sh 'docker run -p 5000:5000 -d --name list-students 227945/my:latest'
     }
