@@ -20,7 +20,7 @@ node {
         sh 'docker rm list-students'
     }*/
     stage('Run Container'){
-        sh 'docker run --rm -d -p 5000:5000 27945/my:latest'
+        sh 'docker run --rm -d -p 5000:5000 27945/my'
     }
     
     stage('Aqua MicroScanner'){
