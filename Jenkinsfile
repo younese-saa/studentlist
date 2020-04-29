@@ -10,7 +10,7 @@ node {
         customImage.push()  
     }
     node{
-        def imageLine = '227945/my:latest'`
+        def imageLine = '227945/my'`
         writeFile file: 'anchore_images', text: imageLine`
         anchore name: 'anchore_images'`
     }
