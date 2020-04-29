@@ -9,6 +9,12 @@ node {
         /* Push the container to the costum Registry */
         customImage.push()  
     }
+    stage('Stop Old container'){
+        sh 'docker stop list-students'
+    }
+    stage('Remove Old container'){
+        sh 'docker rm list-students'
+    }
     stage('Run Container'){
         sh 'docker run -p 5000:5000 -d --name list-students 227945/my:latest'
     }
