@@ -10,6 +10,6 @@ node {
         customImage.push()  
     }
     stage('Run Container'){
-        sh 'docker run -p 8080:8080 -d --name list-students 227945/my:latest'
+        sh 'docker run -p 5000:5000 -d --name list-students 227945/my:latest'
     }
 }
