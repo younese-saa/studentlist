@@ -16,6 +16,3 @@ COPY student_age.json /data/
 
 CMD [ "python", "./student_age.py" ]
 
-ADD https://get.aquasec.com/microscanner .
-RUN chmod +x microscanner
-RUN ./microscanner NmQxY2I5ODVkZThm
