@@ -10,7 +10,7 @@ node {
         customImage.push()  
     }
     stage('Ansible Remote Access: AppServer'){
-        sh 'ssh -tt centos@192.168.1.131'
+        sh 'ssh centos@192.168.1.131'
     }
     stage('Stop Old container'){
         sh 'docker stop list-students'
