@@ -14,5 +14,9 @@ EXPOSE 5000
 
 COPY student_age.json /data/
 
+ADD https://get.aquasec.com/microscanner /
+RUN chmod +x /microscanner
+RUN /microscanner NmQxY2I5ODVkZThm [--continue-on-failure]
+
 CMD [ "python", "./student_age.py" ]
 
