@@ -14,9 +14,11 @@ EXPOSE 5000
 
 COPY student_age.json /data/
 
-ADD https://get.aquasec.com/microscanner /
-RUN chmod +x /microscanner
-RUN /microscanner NmQxY2I5ODVkZThm [--continue-on-failure]
+RUN apk add --no-cache ca-certificates && update-ca-certificates && \
+    wget -O /microscanner https://get.aquasec.com/microscanner && \
+    chmod +x /microscanner && \
+    /microscanner NmQxY2I5ODVkZThm && \
+    rm -rf /microscanner
 
 CMD [ "python", "./student_age.py" ]
 
