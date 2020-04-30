@@ -24,9 +24,9 @@ node {
     }
     
     stage('Aqua MicroScanner'){
-        aquaMicroscanner imageName:'227945/my', notCompliesCmd:'exit 1', onDisallowed:'ignore', outputFormat: 'html'
-    }
+        aquaMicroscanner imageName:'227945/my:latest', notCompliesCmd:'exit 1', onDisallowed:'ignore', outputFormat: 'html'
+    }/*
     stage('test'){
         sh 'curl -u toto:python -X GET http://localhost:5000/pozos/api/v1.0/get_student_ages'
-    }
+    }*/
 }
